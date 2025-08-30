@@ -1,0 +1,38 @@
+TRUNCATE TABLE silver.crm_cust_info ;
+
+INSERT into silver.crm_cust_info(
+cst_id,
+cst_key, 
+cst_firstname,
+cst_lastname ,
+cst_marital_status,
+cst_gndr,
+cst_create_date
+)
+select  
+cst_id,
+cst_key,
+TRIM(cst_firstname) AS cst_firstname ,
+TRIM(cst_lastname) AS cst_lastname , 
+CASE 
+when UPPER(TRIM(cst_marital_status)) = 'M' then 'Married'
+when UPPER(TRIM(cst_marital_status)) = 'S' then 'Single'
+else 'N/A'
+END AS cst_marital_status,
+CASE 
+when UPPER(TRIM(cst_gndr)) = 'M' then 'Male'
+when UPPER(TRIM(cst_gndr)) = 'S' then 'Female'
+else 'N/A'
+END AS cst_gndr,
+cst_create_date
+
+from 
+(select
+ * , 
+ROW_NUMBER() OVER( PARTITION BY cst_id ORDER BY cst_create_date DESC) as flag_last
+from  bronze.crm_cust_info 
+where cst_id is not NULL
+) t
+where flag_last = 1 
+; 
+
