@@ -105,3 +105,37 @@ SELECT
         else sls_price 
     END AS sls_price 
 from bronze.crm_sales_details ;
+
+
+TRUNCATE TABLE silver.erp_cust_az12 ; 
+INSERT into silver.erp_cust_az12(
+    cid ,
+    bdate,
+    gen
+)
+SELECT
+    -- Clean Customer ID: remove "NAS" prefix if exists
+    CASE
+        WHEN cid LIKE 'NAS%' THEN SUBSTRING(cid, 4, LEN(cid))
+        ELSE cid
+    END AS cid, 
+
+    -- Birthdate: remove future dates (set to NULL)
+    CASE
+        WHEN TRY_CAST(bdate AS date) IS NULL THEN NULL                
+        WHEN bdate > GETDATE() THEN NULL                             
+        ELSE bdate
+    END AS bdate,
+
+    -- Gender: normalize to Male / Female / n/a and fix azura data studio issues 
+  CASE 
+        WHEN UPPER(TRIM(CHAR(13) + CHAR(10) + ' ' FROM gen)) IN ('M', 'MALE') 
+            THEN 'Male'
+        WHEN UPPER(TRIM(CHAR(13) + CHAR(10) + ' ' FROM gen)) IN ('F', 'FEMALE') 
+            THEN 'Female'
+        ELSE 'n/a'
+    END AS gen
+
+FROM bronze.erp_cust_az12;
+
+
