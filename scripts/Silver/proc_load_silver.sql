@@ -139,3 +139,22 @@ SELECT
 FROM bronze.erp_cust_az12;
 
 
+TRUNCATE TABLE silver.erp_loc_a101;
+
+INSERT into silver.erp_loc_a101(
+    cid,
+    cntry
+)
+SELECT 
+    REPLACE(cid, '-', '') AS cid,
+    CASE 
+        WHEN UPPER(TRIM(CHAR(13) + CHAR(10) + CHAR(9) + ' ' FROM cntry)) = 'DE' 
+            THEN 'Germany'
+        WHEN UPPER(TRIM(CHAR(13) + CHAR(10) + CHAR(9) + ' ' FROM cntry)) IN ('US', 'USA') 
+            THEN 'United States'
+        WHEN TRIM(CHAR(13) + CHAR(10) + CHAR(9) + ' ' FROM cntry) = '' OR cntry IS NULL  
+            THEN 'N/A'
+        ELSE TRIM(CHAR(13) + CHAR(10) + CHAR(9) + ' ' FROM cntry)
+    END AS cntry
+FROM bronze.erp_loc_a101;
+
