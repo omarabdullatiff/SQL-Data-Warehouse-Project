@@ -76,7 +76,7 @@ CREATE VIEW gold.fact_sales
 as
 SELECT 
     s.sls_ord_num as order_number,
-    p.product_key as procduct_key,
+    p.product_key as product_key,
     c.customer_key as customer_key,
     s.sls_order_dt as order_date,
     s.sls_ship_dt as ship_date,
@@ -88,8 +88,9 @@ from silver.crm_sales_details s
 LEFT JOIN  gold.dim_customers as c 
 on s.sls_cust_id = c.customer_id
 LEFT join gold.dim_products p
-on s.sls_prd_key = p.procduct_number
+on s.sls_prd_key = p.product_number
 ;
+
 
 
 
