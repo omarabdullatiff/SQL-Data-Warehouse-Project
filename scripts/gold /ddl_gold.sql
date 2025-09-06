@@ -47,7 +47,7 @@ as
 SELECT 
     ROW_NUMBER() over(order by p.prd_start_dt , p.prd_key ) as product_key ,
     p.prd_id as product_id,
-    p.prd_key procduct_number,
+    p.prd_key product_number,
     p.prd_nm as product_name,
     p.cat_id category_id,
     pc.cat as category , 
