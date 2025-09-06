@@ -3,6 +3,11 @@ this script to create views for gold layer
 These views can be queried directly for analytics and reportin
 data model in star schema 
 */
+
+-- =============================================================================
+-- Create Dimension: gold.dim_customers
+-- =============================================================================
+
 IF OBJECT_ID('gold.dim_customers' ,'V') is NOT NULL 
 	DROP VIEW gold.dim_customers ;
 GO 
@@ -29,3 +34,10 @@ LEFT JOIN  silver.erp_cust_az12 ca
 on ci.cst_key = ca.cid 
 LEFT JOIN silver.erp_loc_a101 as cl 
 on ci.cst_key = cl.cid ;
+
+-- =============================================================================
+-- Create Dimension: gold.dim_products
+-- =============================================================================
+IF OBJECT_ID('gold.dim_products' ,'V') is NOT NULL 
+	DROP VIEW gold.dim_products ;
+GO 
