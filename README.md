@@ -31,6 +31,8 @@ This project implements a modern data warehouse solution using SQL Server, follo
 ## 🏛️ Architecture
 
 The data warehouse follows the **Medallion Architecture** pattern, providing a clear separation of concerns and data quality levels:
+![First Diagram (1)](https://github.com/user-attachments/assets/970f7271-9a47-4706-b7ae-1f7f9dee4991)
+
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
