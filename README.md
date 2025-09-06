@@ -1,4 +1,4 @@
-# 🏗️ SQL Data Warehouse Project
+# SQL Data Warehouse Project
 
 A comprehensive SQL-based data warehouse solution designed for storing, modeling, and serving clean, analytics-ready data using the **Medallion Architecture** pattern.
 
@@ -15,18 +15,17 @@ A comprehensive SQL-based data warehouse solution designed for storing, modeling
 - [Contributing](#contributing)
 - [License](#license)
 
-## 🎯 Overview
+## Overview
 
 This project implements a modern data warehouse solution using SQL Server, following industry best practices for data ingestion, transformation, and analytics. The warehouse is designed to handle data from multiple source systems (ERP and CRM) and transform it through a three-layer architecture for optimal performance and data quality.
 
 ### Key Features
 
-- ✅ **Medallion Architecture** (Bronze → Silver → Gold)
-- ✅ **Multi-source Integration** (ERP & CRM systems)
-- ✅ **Automated Data Pipeline** with stored procedures
-- ✅ **Data Quality Controls** and metadata tracking
-- ✅ **Scalable Design** for enterprise use
-- ✅ **Comprehensive Documentation**
+-  **Medallion Architecture** (Bronze → Silver → Gold)
+-  **Multi-source Integration** (ERP & CRM systems)
+-  **Automated Data Pipeline** with stored procedures
+-  **Data Quality Controls** and metadata tracking
+
 
 ## 🏛️ Architecture
 
@@ -76,21 +75,21 @@ DWH-project/
 │   └── 📂 gold/                  # Analytics layer
 ├── 📂 docs/                      # Documentation
 ├── 📂 tests/                     # Test files
-├── README.md                     # This file
+├── README.md                     
 └── LICENSE                       # MIT License
 ```
 
 ## 📊 Data Sources
 
-### ERP System Data
-- **Customer Data**: `CUST_AZ12.csv` (18,485 records)
-- **Location Data**: `LOC_A101.csv` (18,486 records)  
-- **Product Categories**: `PX_CAT_G1V2.csv` (38 records)
-
 ### CRM System Data
 - **Customer Information**: `cust_info.csv` (18,495 records)
 - **Product Information**: `prd_info.csv` (399 records)
 - **Sales Details**: `sales_details.csv` (3.4MB)
+
+### ERP System Data
+- **Customer Data**: `CUST_AZ12.csv` (18,485 records)
+- **Location Data**: `LOC_A101.csv` (18,486 records)  
+- **Product Categories**: `PX_CAT_G1V2.csv` (38 records)
 
 ## 🚀 Getting Started
 
@@ -126,7 +125,7 @@ DWH-project/
    sqlcmd -S your_server -d datawarehouse -i scripts/Silver/ddl_load_silver.sql
    ```
 
-## 🗄️ Database Schema
+##  Database Schema
 
 ### Bronze Layer Tables
 
@@ -146,7 +145,7 @@ DWH-project/
 | `silver.erp_cust_info` | Cleaned customer data | + Data validation, + Metadata |
 | `silver.erp_loc_info` | Cleaned location data | + Data validation, + Metadata |
 
-## 🔄 Data Pipeline
+##  Data Pipeline
 
 ### 1. Data Ingestion (Bronze Layer)
 ```sql
@@ -196,7 +195,7 @@ FROM silver.crm_cust_info
 WHERE cst_create_date >= '2023-01-01';
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Database Settings
 - **Database Name**: `datawarehouse`
@@ -208,7 +207,7 @@ WHERE cst_create_date >= '2023-01-01';
 - Partitioning strategy for large tables
 - Automated maintenance plans
 
-## 🧪 Testing
+##  Testing
 
 Run the test suite to validate data quality and pipeline integrity:
 
@@ -220,7 +219,7 @@ cd tests/
 sqlcmd -S your_server -d datawarehouse -i test_data_quality.sql
 ```
 
-## 📈 Monitoring
+##  Monitoring
 
 ### Key Metrics
 - Data freshness (last update timestamps)
@@ -232,14 +231,6 @@ sqlcmd -S your_server -d datawarehouse -i test_data_quality.sql
 - All procedures include comprehensive logging
 - Error handling with detailed messages
 - Audit trail for data lineage
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ### Development Guidelines
 - Follow SQL Server best practices
@@ -255,17 +246,6 @@ sqlcmd -S your_server -d datawarehouse -i test_data_quality.sql
 - Basic data pipeline
 - Multi-source integration
 
-## 🐛 Known Issues
-
-- Gold layer implementation pending
-- Performance optimization for large datasets
-- Automated testing framework
-
-## 📞 Support
-
-For support and questions:
-- Create an issue in the repository
-- Contact: [Your Contact Information]
 
 ## 📄 License
 
@@ -275,8 +255,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - SQL Server community for best practices
 - Data warehouse design patterns
-- Open source contributors
 
 ---
-
-**Built with ❤️ for modern data analytics**
