@@ -2,7 +2,7 @@
 
 A comprehensive SQL-based data warehouse solution designed for storing, modeling, and serving clean, analytics-ready data using the **Medallion Architecture** pattern.
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -26,7 +26,7 @@ This project implements a modern data warehouse solution using SQL Server, follo
 -  **Data Quality Controls** and metadata tracking
 
 
-## 🏛️ Architecture
+##  Architecture
 
 The data warehouse follows the **Medallion Architecture** pattern, providing a clear separation of concerns and data quality levels:
 ![First Diagram (1)](https://github.com/user-attachments/assets/970f7271-9a47-4706-b7ae-1f7f9dee4991)
@@ -50,7 +50,7 @@ The data warehouse follows the **Medallion Architecture** pattern, providing a c
 | **Silver** | Data cleaning & validation | High quality, validated | Optimized schema |
 | **Gold** | Business analytics | Production ready | Business schema |
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 DWH-project/
@@ -78,7 +78,7 @@ DWH-project/
 └── LICENSE                       # MIT License
 ```
 
-## 📊 Data Sources
+##  Data Sources
 
 ### CRM System Data
 - **Customer Information**: `cust_info.csv` (18,495 records)
@@ -90,7 +90,7 @@ DWH-project/
 - **Location Data**: `LOC_A101.csv` (18,486 records)  
 - **Product Categories**: `PX_CAT_G1V2.csv` (38 records)
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -242,7 +242,7 @@ sqlcmd -S your_server -d datawarehouse -i test_data_quality.sql
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - SQL Server community for best practices
 - Data warehouse design patterns
