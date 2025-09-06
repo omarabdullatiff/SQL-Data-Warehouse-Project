@@ -12,7 +12,6 @@ A comprehensive SQL-based data warehouse solution designed for storing, modeling
 - [Database Schema](#database-schema)
 - [Data Pipeline](#data-pipeline)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
@@ -237,14 +236,6 @@ sqlcmd -S your_server -d datawarehouse -i test_data_quality.sql
 - Include comprehensive comments
 - Test all procedures before committing
 - Update documentation for new features
-
-## 📝 Changelog
-
-### Version 1.0.0
-- Initial release
-- Bronze and Silver layer implementation
-- Basic data pipeline
-- Multi-source integration
 
 
 ## 📄 License
