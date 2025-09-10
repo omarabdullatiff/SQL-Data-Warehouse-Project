@@ -199,7 +199,6 @@ WHERE cst_create_date >= '2023-01-01';
 ### Database Settings
 - **Database Name**: `datawarehouse`
 - **Schemas**: `bronze`, `silver`, `gold`
-- **Collation**: SQL_Latin1_General_CP1_CI_AS
 
 ### Performance Optimization
 - Indexes on key columns for faster queries
@@ -230,13 +229,6 @@ sqlcmd -S your_server -d datawarehouse -i test_data_quality.sql
 - All procedures include comprehensive logging
 - Error handling with detailed messages
 - Audit trail for data lineage
-
-### Development Guidelines
-- Follow SQL Server best practices
-- Include comprehensive comments
-- Test all procedures before committing
-- Update documentation for new features
-
 
 ## 📄 License
 
