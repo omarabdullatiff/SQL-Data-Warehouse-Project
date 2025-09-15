@@ -8,7 +8,6 @@
    and calculate duration FOR each process and the patch 
 */
 
-
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
     DECLARE @start_time DATETIME , @end_time DATETIME ,@start_whole_time DATETIME , @end_whole_time DATETIME;
@@ -142,4 +141,7 @@ BEGIN
     PRINT '*************************************'
     
     END CATCH
-END  
+END;
+
+-- Execute the stored procedure to load data
+

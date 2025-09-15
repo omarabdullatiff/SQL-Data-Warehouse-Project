@@ -10,7 +10,6 @@ data model in star schema
 
 IF OBJECT_ID('gold.dim_customers' ,'V') is NOT NULL 
 	DROP VIEW gold.dim_customers ;
-GO 
 
 CREATE VIEW gold.dim_customers 
 AS
@@ -40,7 +39,6 @@ on ci.cst_key = cl.cid ;
 -- =============================================================================
 IF OBJECT_ID('gold.dim_products' ,'V') is NOT NULL 
 	DROP VIEW gold.dim_products ;
-GO 
 
 CREATE VIEW gold.dim_products
 as
@@ -70,7 +68,6 @@ where p.prd_end_dt is null -- to remove historical data to simplifies queries an
 
 if OBJECT_ID('gold.fact_sales' , 'V') is not null 
     DROP VIEW gold.fact_sales ; 
-GO 
 
 CREATE VIEW gold.fact_sales
 as
