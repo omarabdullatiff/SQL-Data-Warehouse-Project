@@ -5,7 +5,7 @@ A comprehensive, production-ready data warehouse solution designed for storing, 
 ##  Table of Contents
 
 - [Overview](#overview)
-- [🚀 New: Airflow Integration](#-new-airflow-integration)
+- [New: Airflow Integration](#-new-airflow-integration)
 - [Architecture](#architecture)
 - [Project Structure](#project-structure)
 - [Data Sources](#data-sources)
@@ -32,11 +32,11 @@ This project implements a modern data warehouse solution using SQL Server, follo
 -  **Parallel Processing** for optimal performance
 -  **SQL Server Compatibility** with proper batch handling
 
-## 🚀 New: Airflow Integration
+##  New: Airflow Integration
 
 This project now features a complete **Apache Airflow** integration that transforms the traditional SQL-based warehouse into a modern, orchestrated data platform:
 
-### ✨ What's New
+###  What's New
 - **Complete DAG Implementation** (`dwh_etl_pipeline.py`)
 - **Automated Scheduling** with configurable intervals
 - **Task Dependencies** with parallel execution where beneficial
@@ -270,7 +270,7 @@ graph TD
 | `create_gold_fact_sales` | Create sales fact table | Gold | Sequential |
 | `gold_quality_check` | Final data validation | Gold | Sequential |
 
-### ⚙️ Configuration
+### ⚙ Configuration
 
 - **Schedule**: Daily at 12:00 PM (`0 12 * * *`)
 - **Max Active Runs**: 1 (prevents overlapping executions)
@@ -278,7 +278,7 @@ graph TD
 - **SQL Server Connection**: `sql_server_dwh_conn`
 - **Split Statements**: Enabled for proper SQL Server batch handling
 
-## 💻 Usage
+##  Usage
 
 ### With Airflow (Recommended)
 
@@ -343,7 +343,7 @@ ORDER BY f.sales_amount DESC;
 
 ## Deployment
 
-### 🐳 Docker Deployment
+###  Docker Deployment
 
 The project includes a complete Docker setup for production deployment:
 
@@ -376,7 +376,7 @@ astro deploy
 
 ## Monitoring & Quality
 
-### 📊 Data Quality Checks
+###  Data Quality Checks
 
 The pipeline includes automated quality validation:
 
@@ -390,21 +390,21 @@ The pipeline includes automated quality validation:
   - Fact table consistency
   - Business rule validation
 
-### 🔍 Airflow Monitoring
+###  Airflow Monitoring
 
 - **Task Duration**: Monitor execution times
 - **Success Rate**: Track pipeline reliability  
 - **Data Freshness**: Verify latest data loads
 - **Error Alerting**: Automated failure notifications
 
-### 📈 Key Metrics
+###  Key Metrics
 
 - Pipeline execution time: ~15-30 minutes
 - Data quality score: >95% target
 - System availability: 99.9% uptime
 - Error rate: <1% of total runs
 
-### 🛠️ Troubleshooting
+### 🛠 Troubleshooting
 
 Common issues and solutions:
 
@@ -424,7 +424,7 @@ Common issues and solutions:
    - Optimize query execution plans
    - Consider parallel processing adjustments
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -433,19 +433,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Apache Airflow Community** for the excellent orchestration platform
 - **SQL Server Community** for best practices and optimization techniques  
 - **Astronomer** for Docker and deployment tools
-- **Data Engineering Community** for medallion architecture patterns
 
----
 
-## 🚀 What's Next?
-
-Future enhancements planned:
-- **dbt Integration** for advanced transformations
-- **Great Expectations** for enhanced data quality
-- **Kubernetes Deployment** for scalable production
-- **Real-time Streaming** with Apache Kafka
-- **Data Lineage Tracking** with OpenLineage
-
----
-
-**Ready to modernize your data warehouse?** Start with Airflow orchestration today! 🎯
